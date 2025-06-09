@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rock, Paper, Scissors - Ultimate Modern</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-bg"></div>
+  <div class="container glass">
+    <header class="modern-header">
+      <div class="logo-title">
+        <span class="logo-svg"></span>
+        <h1>Rock, Paper, Scissors</h1>
+      </div>
+      <div class="toggles">
+        <label class="toggle switch" title="Dark Mode">
+          <input type="checkbox" id="dark-toggle" aria-label="Toggle dark mode">
+          <span class="slider"></span>
+        </label>
+        <button id="music-toggle" class="icon-btn" title="Toggle Music" aria-label="Toggle music">🎵</button>
+        <button id="sound-toggle" class="icon-btn" title="Toggle Sound" aria-label="Toggle sound">🔊</button>
+      </div>
+    </header>
+    <div class="mode-theme-panel">
+      <div class="mode-panel">
+        <label>
+          <input type="radio" name="game-mode" value="single" checked> <span>Single</span>
+        </label>
+        <label>
+          <input type="radio" name="game-mode" value="local"> <span>Local 2P</span>
+        </label>
+      </div>
+      <div class="theme-panel">
+        <select id="theme-select" aria-label="Theme select">
+          <option value="classic">Classic</option>
+          <option value="neon">Neon</option>
+          <option value="nature">Nature</option>
+        </select>
+      </div>
+    </div>
+    <div class="settings glass">
+      <label>
+        <span>Best of</span>
+        <select id="rounds-select">
+          <option value="3">3</option>
+          <option value="5" selected>5</option>
+        </select>
+      </label>
+      <label>
+        <span>Difficulty</span>
+        <select id="difficulty-select">
+          <option value="easy" selected>Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <button id="reset-btn" class="btn-glass">Reset</button>
+    </div>
+    <div class="player-names">
+      <span id="player1-name" class="user-tag">Suraj</span>
+      <span>vs.</span>
+      <span id="player2-name" class="user-tag">Computer</span>
+      <button id="edit-name-btn" title="Edit Name" class="icon-btn mini-edit">✏️</button>
+    </div>
+    <div class="choices-row">
+      <div class="choices">
+        <button class="choice glass" data-choice="rock" aria-label="Rock">
+          <span class="choice-visual" id="rock-svg"></span>
+          <span>Rock</span>
+        </button>
+        <button class="choice glass" data-choice="paper" aria-label="Paper">
+          <span class="choice-visual" id="paper-svg"></span>
+          <span>Paper</span>
+        </button>
+        <button class="choice glass" data-choice="scissors" aria-label="Scissors">
+          <span class="choice-visual" id="scissors-svg"></span>
+          <span>Scissors</span>
+        </button>
+      </div>
+    </div>
+    <div id="turn-indicator" class="turn-indicator"></div>
+    <div id="countdown" class="countdown"></div>
+    <div class="result glass" id="result">
+      <span id="result-graphic"></span>
+      <span id="result-text"></span>
+    </div>
+    <div class="scoreboard glass">
+      <span id="user-score">0</span>
+      <span class="score-names">
+        <span id="score-name1"></span>
+        <span>:</span>
+        <span id="score-name2"></span>
+      </span>
+      <span id="computer-score">0</span>
+    </div>
+    <div id="overall-winner" class="overall-winner"></div>
+    <div class="modern-panels-wrap">
+      <section class="glass modern-panel">
+        <h3>Recent Rounds</h3>
+        <div id="history-list" class="history-list"></div>
+      </section>
+      <section class="glass modern-panel">
+        <h3>Leaderboard</h3>
+        <div id="leaderboard-list" class="leaderboard-list"></div>
+      </section>
+    </div>
+    <!-- Badges -->
+    <div id="badge-popup" class="badge-popup hidden" role="status" aria-live="polite"></div>
+    <!-- Audio files -->
+    <audio id="bg-music" src="sounds/bg-music.mp3" loop preload="auto"></audio>
+    <audio id="sfx-win" src="sounds/win.mp3" preload="auto"></audio>
+    <audio id="sfx-lose" src="sounds/lose.mp3" preload="auto"></audio>
+    <audio id="sfx-draw" src="sounds/draw.mp3" preload="auto"></audio>
+    <audio id="sfx-click" src="sounds/click.mp3" preload="auto"></audio>
+    <!-- Name entry modal -->
+    <div id="name-modal" class="modal hidden" aria-modal="true" role="dialog">
+      <div class="modal-content glass">
+        <h2>Enter your name</h2>
+        <input id="name-input" type="text" maxlength="16" value="Suraj" autofocus>
+        <button id="save-name-btn" class="btn-glass">Start</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
